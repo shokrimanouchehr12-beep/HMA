@@ -92,7 +92,7 @@ for _ in range(num_repeats):
             quality_norm = quality_raw / 1.25425
 
             # apply minimum allowed quality
-            quality = quality_norm
+            quality = max(0.65,quality_norm)
             
             
             initial_temp = np.random.uniform(*initial_temp_range)
@@ -655,3 +655,4 @@ print(importances_gwp.sort_values(by='Importance', ascending=False))
 
 print("\n📊 Sensitivity Analysis for Quality:")
 print(importances_quality.sort_values(by='Importance', ascending=False))
+
